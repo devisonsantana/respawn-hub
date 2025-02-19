@@ -4,4 +4,6 @@
 
 🚩Projeto _backend_ Game Forum.
 
-
+## Referências
+- [Documentação](https://github.com/mauricioHidani/gameforum-backend/blob/main/DOCUMENTATION.md)
+- [Desenvolvedores](https://github.com/mauricioHidani/gameforum-backend/blob/main/DEVELOPERS.md)
