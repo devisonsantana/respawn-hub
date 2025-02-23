@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record RawgGameResponse(
+public record RawgGameDTO(
         @JsonAlias("id") Integer id,
         @JsonAlias("slug") String slug,
         @JsonAlias("name") String name,
