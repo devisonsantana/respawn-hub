@@ -1,10 +1,10 @@
-package br.com.alumini.game.forum.game_forum;
+package br.com.alumini.respawn.hub;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GameForumApplicationTests {
+class RespawnHubApplicationTests {
 
 	@Test
 	void contextLoads() {

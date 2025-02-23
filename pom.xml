@@ -8,11 +8,11 @@
 		<version>3.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.alumini.game.forum</groupId>
+	<groupId>br.com.alumini.respawn.hub</groupId>
 	<artifactId>game-forum</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>game-forum</name>
-	<description>Prejeto Game Forum Alumini ONE</description>
+	<name>respawn-hub</name>
+	<description>Prejeto Respawn Hub Alumini ONE</description>
 	<url/>
 	<licenses>
 		<license/>

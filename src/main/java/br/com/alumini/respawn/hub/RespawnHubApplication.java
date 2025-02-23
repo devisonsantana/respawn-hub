@@ -1,13 +1,13 @@
-package br.com.alumini.game.forum.game_forum;
+package br.com.alumini.respawn.hub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GameForumApplication {
+public class RespawnHubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GameForumApplication.class, args);
+		SpringApplication.run(RespawnHubApplication.class, args);
 	}
 
 }
