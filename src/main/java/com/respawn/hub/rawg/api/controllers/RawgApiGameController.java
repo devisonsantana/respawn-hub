@@ -12,7 +12,7 @@ import com.respawn.hub.rawg.api.records.RawgResponseRawgAPI;
 import com.respawn.hub.rawg.api.services.RawgGameService;
 
 @RestController
-@RequestMapping("/api/rawgw")
+@RequestMapping("/api/rawg")
 public class RawgApiGameController {
     @Autowired
     private RawgGameService gameService;
@@ -22,8 +22,8 @@ public class RawgApiGameController {
         return gameService.getGames();
     }
 
-    @GetMapping("/games")
+    @GetMapping("/games/list")
     public List<RawgGameDTO> getGamesList() {
-        return null;
+        return gameService.listGameDto();
     }
 }
