@@ -10,6 +10,6 @@ public record RawgResponseRawgAPI(
         @JsonAlias("count") Integer count,
         @JsonAlias("next") String next,
         @JsonAlias("previous") String previous,
-        @JsonAlias("results") List<RawgGameResponse> games) {
-
+        @JsonAlias("results") List<RawgGameDTO> games,
+        @JsonAlias("platforms") List<RawgResponsePlatforms> platforms) {
 }
