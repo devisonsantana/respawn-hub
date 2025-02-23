@@ -1,4 +1,4 @@
-package br.com.alumini.respawn.hub;
+package com.respawn.hub;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

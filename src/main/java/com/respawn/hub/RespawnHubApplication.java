@@ -1,4 +1,4 @@
-package br.com.alumini.respawn.hub;
+package com.respawn.hub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,4 @@
+# For more inforamtion https://www.baeldung.com/spring-boot-yaml-vs-properties
+spring:
+  application:
+    name: 'Respawn Hub'
