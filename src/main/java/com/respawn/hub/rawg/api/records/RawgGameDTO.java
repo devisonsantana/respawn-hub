@@ -1,5 +1,7 @@
 package com.respawn.hub.rawg.api.records;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -10,6 +12,7 @@ public record RawgGameDTO(
         @JsonAlias("name") String name,
         @JsonAlias("released") String release,
         @JsonAlias("tba") Boolean tba,
-        @JsonAlias("background_image") String backgroundImage) {
+        @JsonAlias("background_image") String backgroundImage,
+        @JsonAlias("platforms") List<RawgResponsePlatforms> platforms) {
 
 }
