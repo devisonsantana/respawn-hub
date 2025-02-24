@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.respawn.hub.rawg.api.models.Game;
 import com.respawn.hub.rawg.api.records.RawgGameDTO;
 import com.respawn.hub.rawg.api.records.RawgResponseRawgAPI;
 
@@ -22,8 +23,20 @@ public class RawgGameService {
         var data = rawg.toDTO(json, RawgResponseRawgAPI.class);
         return data;
     }
-    public List<RawgGameDTO> listGameDto(){
+
+    public List<RawgGameDTO> listGameDto() {
         var data = getGames();
         return data.games().stream().collect(Collectors.toList());
+    }
+
+    public List<Game> findGames() {
+        var data = getGames()
+                .games()
+                .stream()
+                .map(game -> new Game(game, game.platforms()
+                        .stream()
+                        .map(p -> p.platform()).toList()))
+                .collect(Collectors.toList());
+        return data;
     }
 }
