@@ -1,9 +1,11 @@
 package com.respawn.hub.forum.controllers.handlers;
 
+import com.respawn.hub.forum.exceptions.NotFoundException;
 import com.respawn.hub.forum.models.records.error.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.Clock;
@@ -11,6 +13,11 @@ import java.time.Instant;
 
 @RestControllerAdvice
 public class ExceptionHandlerController {
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> illegalArgumentException(IllegalArgumentException exception, HttpServletRequest request) {
+        return buildErrorResponse(HttpStatus.BAD_REQUEST, exception.getMessage(), request);
+    }
 
     private ResponseEntity<ErrorResponse> buildErrorResponse(HttpStatus status, String message, HttpServletRequest request) {
         final var timestamp = Instant.now(Clock.systemUTC());
