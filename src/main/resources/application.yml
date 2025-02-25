@@ -5,5 +5,7 @@ spring:
     profiles:
       active: 'dev'
 rawg:
-  endpoint: 'https://api.rawg.io/api/games?key='
-  apikey: '2fc5fdb2f990452891cbcd397b6037d9'
+  endpoint: 'https://api.rawg.io/api'
+  path: '/games'
+  query: ''
+  apikey: '?key='
