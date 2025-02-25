@@ -13,13 +13,13 @@ import com.respawn.hub.rawg.api.records.RawgResponseRawgAPI;
 
 @Service
 public class RawgGameService {
-    @Value("${rawg.endpoint}${rawg.apikey}")
-    private String endpoint;
+    @Value("${rawg.endpoint}${rawg.path}${rawg.apikey}")
+    private String url;
     @Autowired
     private RawgAPI rawg;
 
     public RawgResponseRawgAPI getGames() {
-        String json = rawg.getJson(endpoint);
+        String json = rawg.getJson(url);
         var data = rawg.toDTO(json, RawgResponseRawgAPI.class);
         return data;
     }
@@ -38,5 +38,10 @@ public class RawgGameService {
                         .map(p -> p.platform()).toList()))
                 .collect(Collectors.toList());
         return data;
+        // RETORNO ALTERNATIVO
+        // return getGames().games().stream().map(game -> {
+        //     var platform = game.platforms().stream().map(p -> p.platform()).toList();
+        //     return new Game(game, platform);
+        // }).toList();
     }
 }
