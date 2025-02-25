@@ -5,4 +5,5 @@ spring:
 rawg:
   endpoint: 'https://api.rawg.io/api'
   path: '/games'
+  query: ''
   apikey: '?key='
