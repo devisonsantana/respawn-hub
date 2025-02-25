@@ -3,5 +3,6 @@ spring:
   application:
     name: 'Respawn Hub'
 rawg:
-  endpoint: 'https://api.rawg.io/api/games?key='
-  apikey: ''
+  endpoint: 'https://api.rawg.io/api'
+  path: '/games'
+  apikey: '?key='
