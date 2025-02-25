@@ -13,8 +13,6 @@ import com.respawn.hub.rawg.api.records.RawgGameDTO;
 import com.respawn.hub.rawg.api.records.RawgResponseRawgAPI;
 import com.respawn.hub.rawg.api.services.RawgGameService;
 
-import jakarta.websocket.server.PathParam;
-
 @RestController
 @RequestMapping("/api/rawg")
 public class RawgApiGameController {
