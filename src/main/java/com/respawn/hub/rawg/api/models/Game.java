@@ -13,6 +13,7 @@ public class Game {
     private Double rating;
     private Integer ratingTop;
     private String description;
+    private String descriptionRaw;
     private LocalDate release;
     private String backgroundImg;
     private String website;
@@ -29,6 +30,7 @@ public class Game {
         rating = gameDetail.rating();
         ratingTop = gameDetail.ratingTop();
         description = gameDetail.description();
+        descriptionRaw = gameDetail.descriptionRaw();
         release = LocalDate.parse(gameDetail.released());
         backgroundImg = gameDetail.backgroundImage();
         website = gameDetail.website();
@@ -92,6 +94,14 @@ public class Game {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDescriptionRaw() {
+        return descriptionRaw;
+    }
+
+    public void setDescriptionRaw(String descriptionRaw) {
+        this.descriptionRaw = descriptionRaw;
     }
 
     public LocalDate getRelease() {
@@ -178,9 +188,10 @@ public class Game {
     @Override
     public String toString() {
         return "Game\nid=" + id + ",\ntitle=" + title + ",\noriginalTitle=" + originalTitle + ",\nslug=" + slug
-                + ",\nrating=" + rating + ",\nratingTop=" + ratingTop + ",\ndescription=" + description + ",\nrelease="
-                + release + ",\nbackgroundImg=" + backgroundImg + ",\nwebsite=" + website + ",\ngenres=" + genres
-                + ",\ntags=" + tags + ",\nplatforms=" + platforms + ",\ndevelopers=" + developers;
+                + ",\nrating=" + rating + ",\nratingTop=" + ratingTop + ",\ndescription=" + description
+                + ",\ndescriptionRaw=" + descriptionRaw + ",\nrelease=" + release + ",\nbackgroundImg=" + backgroundImg
+                + ",\nwebsite=" + website + ",\ngenres=" + genres + ",\ntags=" + tags + ",\nplatforms=" + platforms
+                + ",\ndevelopers=" + developers;
     }
 
 }
