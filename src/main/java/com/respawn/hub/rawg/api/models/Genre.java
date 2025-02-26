@@ -1,16 +1,16 @@
 package com.respawn.hub.rawg.api.models;
 
-import com.respawn.hub.rawg.api.records.platforms.RawgPlatformsDTO;
+import com.respawn.hub.rawg.api.records.genres.RawgGenresDTO;
 
-public class Platform {
+public class Genre {
     private Integer id;
     private String name;
     private String slug;
 
-    public Platform(RawgPlatformsDTO platform) {
-        id = platform.id();
-        name = platform.name();
-        slug = platform.slug();
+    public Genre(RawgGenresDTO genre) {
+        id = genre.id();
+        name = genre.name();
+        slug = genre.slug();
     }
 
     public Integer getId() {
@@ -53,7 +53,7 @@ public class Platform {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Platform other = (Platform) obj;
+        Genre other = (Genre) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -64,7 +64,7 @@ public class Platform {
 
     @Override
     public String toString() {
-        return "Platform\nid=" + id + ",\nname=" + name + ",\nslug=" + slug;
+        return "Genre\nid=" + id + ",\nname=" + name + ",\nslug=" + slug;
     }
 
 }
