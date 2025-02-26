@@ -1,42 +1,34 @@
 package com.respawn.hub.rawg.api.models;
 
-import com.respawn.hub.rawg.api.records.platforms.RawgPlatformsDTO;
+import com.respawn.hub.rawg.api.records.developers.RawgDevelopersDTO;
 
-public class Platform {
+public class Developer {
     private Integer id;
     private String name;
     private String slug;
-
-    public Platform(RawgPlatformsDTO platform) {
-        id = platform.id();
-        name = platform.name();
-        slug = platform.slug();
+    public Developer (RawgDevelopersDTO developer) {
+        id = developer.id();
+        name = developer.name();
+        slug = developer.slug();
     }
-
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getSlug() {
         return slug;
     }
-
     public void setSlug(String slug) {
         this.slug = slug;
     }
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -44,7 +36,6 @@ public class Platform {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -53,7 +44,7 @@ public class Platform {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Platform other = (Platform) obj;
+        Developer other = (Developer) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -61,10 +52,9 @@ public class Platform {
             return false;
         return true;
     }
-
     @Override
     public String toString() {
-        return "Platform\nid=" + id + ",\nname=" + name + ",\nslug=" + slug;
+        return "Developer\nid=" + id + ",\nname=" + name + ",\nslug=" + slug;
     }
-
+    
 }
