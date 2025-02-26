@@ -1,5 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:mysql://respawn_hub_mysql_test:3310/respawn_hub_db?allowPublicKeyRetrieval=true&useSSL=false
-    username: moonuser
-    password: moonkey
