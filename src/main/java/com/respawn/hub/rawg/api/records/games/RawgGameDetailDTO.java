@@ -18,6 +18,7 @@ public record RawgGameDetailDTO(
         @JsonAlias("rating") Double rating,
         @JsonAlias("rating_top") Integer ratingTop,
         @JsonAlias("description") String description,
+        @JsonAlias("description_raw") String descriptionRaw,
         @JsonAlias("released") String released,
         @JsonAlias("background_image") String backgroundImage,
         @JsonAlias("website") String website,
