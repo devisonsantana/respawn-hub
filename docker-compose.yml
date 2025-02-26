@@ -1,0 +1,25 @@
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: respawn_hub_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'respawn_hub_db'
+      MYSQL_USER: 'moonuser'
+      MYSQL_PASSWORD: 'moonkey'
+      MYSQL_ROOT_PASSWORD: 'kg1owIPej7eoiUPR94li8kkn35GX'
+    ports:
+      - '3310:3306'
+    volumes:
+      - respawn_hub_data:/var/lib/mysql
+    networks:
+      - respawn_hub_network
+
+volumes:
+  respawn_hub_data:
+    driver: local
+
+networks:
+  respawn_hub_network:
+    driver: bridge
