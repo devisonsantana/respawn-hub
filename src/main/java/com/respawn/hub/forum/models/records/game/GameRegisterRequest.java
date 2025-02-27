@@ -7,8 +7,13 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 
 public record GameRegisterRequest(
+        @NotEmpty(message = "O campo nome deve ser preenchido")
+        @Size(min = 3, max = 100, message = "O campo nome deve ter entre 3 à 100 caracteres")
         String name,
+
+        @Size(min = 3, max = 100, message = "O campo nome original deve ter entre 3 à 100 caracteres")
         String originalName,
+
         String description,
 
         LocalDate launch,
