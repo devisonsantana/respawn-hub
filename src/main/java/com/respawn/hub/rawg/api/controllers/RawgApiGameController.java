@@ -3,14 +3,14 @@ package com.respawn.hub.rawg.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.respawn.hub.rawg.api.models.Game;
-import com.respawn.hub.rawg.api.records.RawgGameDTO;
-import com.respawn.hub.rawg.api.records.RawgResponseRawgAPI;
+import com.respawn.hub.rawg.api.records.games.RawgGameDTO;
+import com.respawn.hub.rawg.api.records.games.RawgResponseGameEndpoint;
 import com.respawn.hub.rawg.api.services.RawgGameService;
 
 @RestController
@@ -19,21 +19,24 @@ public class RawgApiGameController {
     @Autowired
     private RawgGameService gameService;
 
-    @GetMapping("/games/response")
-    public RawgResponseRawgAPI getGames() {
-        return gameService.getGames();
+    // Controller para testes
+    @GetMapping("/response")
+    public RawgResponseGameEndpoint getGames() {
+        return gameService.apiResponse();
     }
 
-    @GetMapping("/games/list")
+    // Controller para testes
+    @GetMapping("/list/dto")
     public List<RawgGameDTO> getGamesList() {
         return gameService.listGameDto();
     }
 
-    @GetMapping("/games")
-    public List<Game> findGames(@RequestParam(value = "list", required = true) String value) {
-        if (value.equals("all")) {
-            return gameService.findGames();
-        }
-        return null;
+    // Esse controller retorna Game com todas as informações necessarias
+    // já prontas pra enviar pro banco de dados, caso queira adicionar mais campos
+    // não se esqueça de adicionar nos MODELS e nos RECORDS
+    @GetMapping("/game/entity")
+    public ResponseEntity<List<Game>> getGameEntity() {
+        var body = gameService.getGames();
+        return ResponseEntity.ok(body);
     }
 }

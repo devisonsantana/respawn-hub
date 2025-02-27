@@ -1,12 +1,11 @@
+# For more inforamtion https://www.baeldung.com/spring-boot-yaml-vs-properties
 spring:
   application:
     name: 'Respawn Hub'
-  profiles:
-    active: 'dev'
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
+    profiles:
+      active: 'dev'
 rawg:
   endpoint: 'https://api.rawg.io/api'
-  path: '/games'
+  path: ''
   query: ''
   apikey: '?key='

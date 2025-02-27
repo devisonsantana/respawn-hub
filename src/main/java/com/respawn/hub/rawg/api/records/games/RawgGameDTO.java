@@ -1,9 +1,10 @@
-package com.respawn.hub.rawg.api.records;
+package com.respawn.hub.rawg.api.records.games;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.respawn.hub.rawg.api.records.platforms.RawgResponsePlatforms;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RawgGameDTO(
