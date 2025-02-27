@@ -1,5 +1,6 @@
 package com.respawn.hub.forum.controllers.handlers;
 
+import com.respawn.hub.forum.exceptions.DatabaseErrorException;
 import com.respawn.hub.forum.exceptions.NotFoundException;
 import com.respawn.hub.forum.models.records.error.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +23,11 @@ public class ExceptionHandlerController {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorResponse> notFoundException(NotFoundException exception, HttpServletRequest request) {
         return buildErrorResponse(HttpStatus.NOT_FOUND, exception.getMessage(), request);
+    }
+
+    @ExceptionHandler(DatabaseErrorException.class)
+    public ResponseEntity<ErrorResponse> databaseErrorException(DatabaseErrorException exception, HttpServletRequest request) {
+        return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage(), request);
     }
 
     private ResponseEntity<ErrorResponse> buildErrorResponse(HttpStatus status, String message, HttpServletRequest request) {
