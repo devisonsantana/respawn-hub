@@ -17,7 +17,7 @@ public class GameForum implements Serializable {
     @Column private String name;
     @Column private String originalName;
     @Column private String description;
-    @Column private LocalDate releaseA;
+    @Column private LocalDate launch;
     @Column private String backgroundImageUrl;
     @Column private String websiteUrl;
 
@@ -27,23 +27,23 @@ public class GameForum implements Serializable {
     protected GameForum() {
     }
 
-    public GameForum(String name, String originalName, String description, LocalDate releaseA,
+    public GameForum(String name, String originalName, String description, LocalDate launch,
                      String backgroundImageUrl, String websiteUrl) {
         this.name = name;
         this.originalName = originalName;
         this.description = description;
-        this.releaseA = releaseA;
+        this.launch = launch;
         this.backgroundImageUrl = backgroundImageUrl;
         this.websiteUrl = websiteUrl;
     }
 
-    public GameForum(Long id, String name, String originalName, String description, LocalDate releaseA,
+    public GameForum(Long id, String name, String originalName, String description, LocalDate launch,
                      String backgroundImageUrl, String websiteUrl) {
         this.id = id;
         this.name = name;
         this.originalName = originalName;
         this.description = description;
-        this.releaseA = releaseA;
+        this.launch = launch;
         this.backgroundImageUrl = backgroundImageUrl;
         this.websiteUrl = websiteUrl;
     }
@@ -53,7 +53,7 @@ public class GameForum implements Serializable {
         this.name = builder.name;
         this.originalName = builder.originalName;
         this.description = builder.description;
-        this.releaseA = builder.release;
+        this.launch = builder.launch;
         this.backgroundImageUrl = builder.backgroundImageUrl;
         this.websiteUrl = builder.websiteUrl;
     }
@@ -74,8 +74,8 @@ public class GameForum implements Serializable {
         return description;
     }
 
-    public LocalDate getReleaseA() {
-        return releaseA;
+    public LocalDate getLaunch() {
+        return launch;
     }
 
     public String getBackgroundImageUrl() {
@@ -93,12 +93,12 @@ public class GameForum implements Serializable {
         GameForum gameForum = (GameForum) o;
         return Objects.equals(name, gameForum.name) &&
                 Objects.equals(originalName, gameForum.originalName) &&
-                Objects.equals(releaseA, gameForum.releaseA);
+                Objects.equals(launch, gameForum.launch);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, originalName, releaseA);
+        return Objects.hash(name, originalName, launch);
     }
 
     @Override
@@ -108,10 +108,10 @@ public class GameForum implements Serializable {
                 ", name: '%s'" +
                 ", originalName: '%s'" +
                 ", description: '%s'" +
-                ", release: '%s'" +
+                ", launch: '%s'" +
                 ", backgroundImageUrl: '%s'" +
                 ", websiteUrl: '%s'" +
-                "}".formatted(id, name, originalName, description, releaseA, backgroundImageUrl, websiteUrl);
+                "}".formatted(id, name, originalName, description, launch, backgroundImageUrl, websiteUrl);
     }
 
     public static Builder builder() {
@@ -123,7 +123,7 @@ public class GameForum implements Serializable {
         private String name;
         private String originalName;
         private String description;
-        private LocalDate release;
+        private LocalDate launch;
         private String backgroundImageUrl;
         private String websiteUrl;
 
@@ -147,8 +147,8 @@ public class GameForum implements Serializable {
             return this;
         }
 
-        public Builder release(LocalDate release) {
-            this.release = release;
+        public Builder launch(LocalDate launch) {
+            this.launch = launch;
             return this;
         }
 

@@ -20,7 +20,7 @@ public record GameRegisterResponse(
                 .name(entity.getName())
                 .originalName(entity.getOriginalName())
                 .description(entity.getDescription())
-                .release(entity.getReleaseA())
+                .release(entity.getLaunch())
                 .backgroundImageUrl(entity.getBackgroundImageUrl())
                 .websiteUrl(entity.getWebsiteUrl())
                 .build();
