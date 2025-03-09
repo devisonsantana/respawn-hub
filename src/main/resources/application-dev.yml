@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3310/respawn_hub_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: moonuser
+    password: moonkey
+  jpa:
+    hibernate:
+      ddl-auto: update
