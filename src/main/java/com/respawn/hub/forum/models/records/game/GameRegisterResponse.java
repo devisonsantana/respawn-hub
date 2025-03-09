@@ -9,7 +9,7 @@ public record GameRegisterResponse(
         String name,
         String originalName,
         String description,
-        LocalDate release,
+        LocalDate launch,
         String backgroundImageUrl,
         String websiteUrl
 ) {
@@ -35,7 +35,7 @@ public record GameRegisterResponse(
         private String name;
         private String originalName;
         private String description;
-        private LocalDate release;
+        private LocalDate launch;
         private String backgroundImageUrl;
         private String websiteUrl;
 
@@ -60,7 +60,7 @@ public record GameRegisterResponse(
         }
 
         public Builder release(LocalDate release) {
-            this.release = release;
+            this.launch = release;
             return this;
         }
 
@@ -80,7 +80,7 @@ public record GameRegisterResponse(
                     name,
                     originalName,
                     description,
-                    release,
+                    launch,
                     backgroundImageUrl,
                     websiteUrl
             );

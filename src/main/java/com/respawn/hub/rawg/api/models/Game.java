@@ -14,7 +14,7 @@ public class Game {
     private Integer ratingTop;
     private String description;
     private String descriptionRaw;
-    private LocalDate release;
+    private LocalDate launch;
     private String backgroundImg;
     private String website;
     private List<Genre> genres;
@@ -31,7 +31,7 @@ public class Game {
         ratingTop = gameDetail.ratingTop();
         description = gameDetail.description();
         descriptionRaw = gameDetail.descriptionRaw();
-        release = LocalDate.parse(gameDetail.released());
+        launch = LocalDate.parse(gameDetail.released());
         backgroundImg = gameDetail.backgroundImage();
         website = gameDetail.website();
         genres = gameDetail.genres().stream().map(Genre::new).toList();
@@ -104,12 +104,12 @@ public class Game {
         this.descriptionRaw = descriptionRaw;
     }
 
-    public LocalDate getRelease() {
-        return release;
+    public LocalDate getLaunch() {
+        return launch;
     }
 
-    public void setRelease(LocalDate release) {
-        this.release = release;
+    public void setLaunch(LocalDate launch) {
+        this.launch = launch;
     }
 
     public String getBackgroundImg() {
@@ -189,7 +189,7 @@ public class Game {
     public String toString() {
         return "Game\nid=" + id + ",\ntitle=" + title + ",\noriginalTitle=" + originalTitle + ",\nslug=" + slug
                 + ",\nrating=" + rating + ",\nratingTop=" + ratingTop + ",\ndescription=" + description
-                + ",\ndescriptionRaw=" + descriptionRaw + ",\nrelease=" + release + ",\nbackgroundImg=" + backgroundImg
+                + ",\ndescriptionRaw=" + descriptionRaw + ",\nlaunch=" + launch + ",\nbackgroundImg=" + backgroundImg
                 + ",\nwebsite=" + website + ",\ngenres=" + genres + ",\ntags=" + tags + ",\nplatforms=" + platforms
                 + ",\ndevelopers=" + developers;
     }
