@@ -7,12 +7,14 @@ import com.respawn.hub.forum.models.records.error.ValidationErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.Clock;
 import java.time.Instant;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class ExceptionHandlerController {
@@ -34,16 +36,21 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ValidationErrorResponse> validationException(MethodArgumentNotValidException exception, HttpServletRequest request) {
-        final var status = HttpStatus.UNPROCESSABLE_ENTITY;
+        final var status = HttpStatus.BAD_REQUEST;
         final var timestamp = Instant.now(Clock.systemUTC());
         final var result = ValidationErrorResponse.builder()
                 .statusCode(status.value())
                 .status(status.name())
                 .timestamp(timestamp)
-                .errorMessage(exception.getMessage())
                 .path(request.getRequestURI())
+                .fieldErrors(exception.getBindingResult().getFieldErrors().stream()
+                        .collect(Collectors.toMap(
+                                FieldError::getField,
+                                FieldError::getDefaultMessage,
+                                (existing, replacement) -> existing)
+                        )
+                )
                 .build();
-        exception.getBindingResult().getFieldErrors().forEach(result::addFieldError);
 
         return ResponseEntity.status(status).body(result);
     }
