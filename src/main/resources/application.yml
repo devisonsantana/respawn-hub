@@ -2,8 +2,11 @@
 spring:
   application:
     name: 'Respawn Hub'
-    profiles:
-      active: 'dev'
+  profiles:
+    active: 'dev'
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
 rawg:
   endpoint: 'https://api.rawg.io/api'
   path: ''
