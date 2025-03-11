@@ -23,6 +23,11 @@ public class GameController {
         this.findByIdService = findByIdService;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<GameFindCompleteResponse> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(findByIdService.apply(id));
+    }
+
     @PostMapping
     public ResponseEntity<GameRegisterResponse> register(@RequestBody @Valid GameRegisterRequest request) {
         final var result = registerService.apply(request);
