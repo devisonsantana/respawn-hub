@@ -4,7 +4,7 @@ import com.respawn.hub.forum.models.entities.GameForum;
 
 import java.time.LocalDate;
 
-public record GameRegisterResponse(
+public record GameFindCompleteResponse(
         Long id,
         String name,
         String originalName,
@@ -14,13 +14,13 @@ public record GameRegisterResponse(
         String websiteUrl
 ) {
 
-    public static GameRegisterResponse parse(GameForum entity) {
-        return GameRegisterResponse.builder()
+    public static GameFindCompleteResponse parse(GameForum entity) {
+        return GameFindCompleteResponse.builder()
                 .id(entity.getId())
                 .name(entity.getName())
                 .originalName(entity.getOriginalName())
                 .description(entity.getDescription())
-                .release(entity.getLaunch())
+                .launch(entity.getLaunch())
                 .backgroundImageUrl(entity.getBackgroundImageUrl())
                 .websiteUrl(entity.getWebsiteUrl())
                 .build();
@@ -59,8 +59,8 @@ public record GameRegisterResponse(
             return this;
         }
 
-        public Builder release(LocalDate release) {
-            this.launch = release;
+        public Builder launch(LocalDate launch) {
+            this.launch = launch;
             return this;
         }
 
@@ -74,8 +74,8 @@ public record GameRegisterResponse(
             return this;
         }
 
-        public GameRegisterResponse build() {
-            return new GameRegisterResponse(
+        public GameFindCompleteResponse build() {
+            return new GameFindCompleteResponse(
                     id,
                     name,
                     originalName,
